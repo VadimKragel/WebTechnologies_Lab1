@@ -1,6 +1,6 @@
-package by.bsuir.lab1.task12;
+package by.bsuir.lab1.task14;
 
-public class Book {
+public class Book implements Cloneable {
     private String title;
     private String author;
     private int price;
@@ -54,5 +54,12 @@ public class Book {
     @Override
     public String toString() {
         return getClass().getName() + "{title: \"" + title + "\", author: \"" + author + "\", price: " + price + ", edition: " + edition + "}";
+    }
+
+    @Override
+    public Book clone() throws CloneNotSupportedException {
+        Book clone = (Book) super.clone();
+        clone.author = this.author;
+        return clone;
     }
 }
